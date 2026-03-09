@@ -10,4 +10,4 @@ openapi:
   version: '@project.version@'
 spring:
   application:
-    name: template
+    name: api-configuration-service

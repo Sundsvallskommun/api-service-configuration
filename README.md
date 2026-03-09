@@ -1,6 +1,8 @@
-# TemplateSpringBoot
+# Configuration Service
 
-_A concise description of what this Spring Boot microservice does._
+A simple CRUD microservice for persisting and managing configuration for web applications. Provides a standardized way
+for frontend teams to store and retrieve app-specific configuration, replacing ad hoc solutions with a unified, reusable
+API.
 
 ## Getting Started
 
@@ -8,17 +10,17 @@ _A concise description of what this Spring Boot microservice does._
 
 - **Java 25 or higher**
 - **Maven**
-- **MariaDB**(if applicable)
+- **MariaDB**
 - **Git**
-- **[Dependent Microservices](#dependencies)** (if applicable)
+- **[Dependent Microservices](#dependencies)**
 
 ### Installation
 
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/Sundsvallskommun/YOUR-PROJECT-ID.git
-   cd YOUR-PROJECT-ID
+   git clone https://github.com/Sundsvallskommun/api-configuration-service.git
+   cd api-configuration-service
    ```
 2. **Configure the application:**
 
@@ -40,14 +42,7 @@ _A concise description of what this Spring Boot microservice does._
 
 ## Dependencies
 
-This microservice depends on the following services:
-
-- **Service Name**
-  - **Purpose:** Brief description of what the dependent service does.
-  - **Repository:** [Link to the repository](https://github.com/Sundsvallskommun/service_name)
-  - **Setup Instructions:** Refer to its documentation for installation and configuration steps.
-
-Ensure that these services are running and properly configured before starting this microservice.
+This microservice has no external service dependencies.
 
 ## API Documentation
 
@@ -91,20 +86,6 @@ Configuration is crucial for the application to run successfully. Ensure all nec
       username: your_db_username
       password: your_db_password
   ```
-- **External Service URLs:**
-
-  ```yaml
-  integration:
-    service:
-      url: http://dependency_service_url
-      oauth2:
-        client-id: some-client-id
-        client-secret: some-client-secret
-
-  service:
-    oauth2:
-      token-url: http://dependecy_service_token_url
-  ```
 
 ### Database Initialization
 
@@ -141,13 +122,13 @@ This project is licensed under the [MIT License](LICENSE).
 
 ## Code status
 
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Sundsvallskommun_YOUR-PROJECT-ID&metric=alert_status)](https://sonarcloud.io/summary/overall?id=Sundsvallskommun_YOUR-PROJECT-ID)
-[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=Sundsvallskommun_YOUR-PROJECT-ID&metric=reliability_rating)](https://sonarcloud.io/summary/overall?id=Sundsvallskommun_YOUR-PROJECT-ID)
-[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=Sundsvallskommun_YOUR-PROJECT-ID&metric=security_rating)](https://sonarcloud.io/summary/overall?id=Sundsvallskommun_YOUR-PROJECT-ID)
-[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=Sundsvallskommun_YOUR-PROJECT-ID&metric=sqale_rating)](https://sonarcloud.io/summary/overall?id=Sundsvallskommun_YOUR-PROJECT-ID)
-[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=Sundsvallskommun_YOUR-PROJECT-ID&metric=vulnerabilities)](https://sonarcloud.io/summary/overall?id=Sundsvallskommun_YOUR-PROJECT-ID)
-[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=Sundsvallskommun_YOUR-PROJECT-ID&metric=bugs)](https://sonarcloud.io/summary/overall?id=Sundsvallskommun_YOUR-PROJECT-ID)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Sundsvallskommun_api-configuration-service&metric=alert_status)](https://sonarcloud.io/summary/overall?id=Sundsvallskommun_api-configuration-service)
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=Sundsvallskommun_api-configuration-service&metric=reliability_rating)](https://sonarcloud.io/summary/overall?id=Sundsvallskommun_api-configuration-service)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=Sundsvallskommun_api-configuration-service&metric=security_rating)](https://sonarcloud.io/summary/overall?id=Sundsvallskommun_api-configuration-service)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=Sundsvallskommun_api-configuration-service&metric=sqale_rating)](https://sonarcloud.io/summary/overall?id=Sundsvallskommun_api-configuration-service)
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=Sundsvallskommun_api-configuration-service&metric=vulnerabilities)](https://sonarcloud.io/summary/overall?id=Sundsvallskommun_api-configuration-service)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=Sundsvallskommun_api-configuration-service&metric=bugs)](https://sonarcloud.io/summary/overall?id=Sundsvallskommun_api-configuration-service)
 
 ---
 
-© 2024 Sundsvalls kommun
+© 2026 Sundsvalls kommun

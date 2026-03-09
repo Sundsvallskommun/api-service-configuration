@@ -9,9 +9,9 @@
 		<!-- lookup parent from repository -->
 	</parent>
 	<groupId>se.sundsvall</groupId>
-	<artifactId>template-spring-boot</artifactId>
+	<artifactId>api-configuration-service</artifactId>
 	<version>1.0</version>
-	<name>template</name>
+	<name>api-configuration-service</name>
 	<properties />
 	<dependencies>
 		<dependency>
