@@ -1,0 +1,4 @@
+SET FOREIGN_KEY_CHECKS = 0;
+TRUNCATE TABLE configuration_item;
+TRUNCATE TABLE configuration;
+SET FOREIGN_KEY_CHECKS = 1;

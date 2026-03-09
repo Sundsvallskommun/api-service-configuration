@@ -19,8 +19,8 @@ API.
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/Sundsvallskommun/api-configuration-service.git
-   cd api-configuration-service
+   git clone https://github.com/Sundsvallskommun/api-service-configuration.git
+   cd api-service-configuration
    ```
 2. **Configure the application:**
 
@@ -58,10 +58,27 @@ Alternatively, refer to the `openapi.yml` file located in the project's root dir
 
 Refer to the [API Documentation](#api-documentation) for detailed information on available endpoints.
 
-### Example Request
+### Example Requests
 
 ```bash
-curl -X GET http://localhost:8080/api/resource
+# Get all configurations for an app
+curl -X GET http://localhost:8080/2281/configurations/my-app
+
+# Get a specific configuration value
+curl -X GET http://localhost:8080/2281/configurations/my-app/feature.enabled
+
+# Create a configuration value
+curl -X POST http://localhost:8080/2281/configurations/my-app/feature.enabled \
+  -H "Content-Type: application/json" \
+  -d '{"value": "true"}'
+
+# Update a configuration value
+curl -X PUT http://localhost:8080/2281/configurations/my-app/feature.enabled \
+  -H "Content-Type: application/json" \
+  -d '{"value": "false"}'
+
+# Delete a configuration value
+curl -X DELETE http://localhost:8080/2281/configurations/my-app/feature.enabled
 ```
 
 ## Configuration
@@ -122,12 +139,12 @@ This project is licensed under the [MIT License](LICENSE).
 
 ## Code status
 
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Sundsvallskommun_api-configuration-service&metric=alert_status)](https://sonarcloud.io/summary/overall?id=Sundsvallskommun_api-configuration-service)
-[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=Sundsvallskommun_api-configuration-service&metric=reliability_rating)](https://sonarcloud.io/summary/overall?id=Sundsvallskommun_api-configuration-service)
-[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=Sundsvallskommun_api-configuration-service&metric=security_rating)](https://sonarcloud.io/summary/overall?id=Sundsvallskommun_api-configuration-service)
-[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=Sundsvallskommun_api-configuration-service&metric=sqale_rating)](https://sonarcloud.io/summary/overall?id=Sundsvallskommun_api-configuration-service)
-[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=Sundsvallskommun_api-configuration-service&metric=vulnerabilities)](https://sonarcloud.io/summary/overall?id=Sundsvallskommun_api-configuration-service)
-[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=Sundsvallskommun_api-configuration-service&metric=bugs)](https://sonarcloud.io/summary/overall?id=Sundsvallskommun_api-configuration-service)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Sundsvallskommun_api-service-configuration&metric=alert_status)](https://sonarcloud.io/summary/overall?id=Sundsvallskommun_api-service-configuration)
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=Sundsvallskommun_api-service-configuration&metric=reliability_rating)](https://sonarcloud.io/summary/overall?id=Sundsvallskommun_api-service-configuration)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=Sundsvallskommun_api-service-configuration&metric=security_rating)](https://sonarcloud.io/summary/overall?id=Sundsvallskommun_api-service-configuration)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=Sundsvallskommun_api-service-configuration&metric=sqale_rating)](https://sonarcloud.io/summary/overall?id=Sundsvallskommun_api-service-configuration)
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=Sundsvallskommun_api-service-configuration&metric=vulnerabilities)](https://sonarcloud.io/summary/overall?id=Sundsvallskommun_api-service-configuration)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=Sundsvallskommun_api-service-configuration&metric=bugs)](https://sonarcloud.io/summary/overall?id=Sundsvallskommun_api-service-configuration)
 
 ---
 

@@ -1,0 +1,10 @@
+{
+	"data": {
+		"feature.x": [
+			"enabled"
+		],
+		"max-users": [
+			"100"
+		]
+	}
+}

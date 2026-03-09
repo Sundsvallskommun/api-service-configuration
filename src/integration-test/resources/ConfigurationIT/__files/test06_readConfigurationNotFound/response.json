@@ -1,0 +1,5 @@
+{
+	"title": "Not Found",
+	"status": 404,
+	"detail": "Configuration for application 'non-existent' and namespace 'feature-flags' not found in municipality '2281'"
+}
