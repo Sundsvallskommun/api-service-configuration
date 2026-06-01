@@ -7,7 +7,7 @@ info:
     url: https://opensource.org/licenses/MIT
   version: "1.0"
 servers:
-- url: http://localhost:63052
+- url: http://localhost:63954
   description: Generated server url
 tags:
 - name: Configurations
@@ -44,6 +44,12 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Configuration"
+        "404":
+          description: Not found
+          content:
+            application/problem+json:
+              schema:
+                $ref: "#/components/schemas/Problem"
         "400":
           description: Bad request
           content:
@@ -52,12 +58,6 @@ paths:
                 oneOf:
                 - $ref: "#/components/schemas/Problem"
                 - $ref: "#/components/schemas/ConstraintViolationProblem"
-        "404":
-          description: Not found
-          content:
-            application/problem+json:
-              schema:
-                $ref: "#/components/schemas/Problem"
         "500":
           description: Internal server error
           content:
@@ -100,6 +100,12 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Configuration"
+        "404":
+          description: Not found
+          content:
+            application/problem+json:
+              schema:
+                $ref: "#/components/schemas/Problem"
         "400":
           description: Bad request
           content:
@@ -108,12 +114,6 @@ paths:
                 oneOf:
                 - $ref: "#/components/schemas/Problem"
                 - $ref: "#/components/schemas/ConstraintViolationProblem"
-        "404":
-          description: Not found
-          content:
-            application/problem+json:
-              schema:
-                $ref: "#/components/schemas/Problem"
         "500":
           description: Internal server error
           content:
@@ -151,6 +151,12 @@ paths:
       responses:
         "201":
           description: Created
+        "409":
+          description: Conflict
+          content:
+            application/problem+json:
+              schema:
+                $ref: "#/components/schemas/Problem"
         "400":
           description: Bad request
           content:
@@ -159,12 +165,6 @@ paths:
                 oneOf:
                 - $ref: "#/components/schemas/Problem"
                 - $ref: "#/components/schemas/ConstraintViolationProblem"
-        "409":
-          description: Conflict
-          content:
-            application/problem+json:
-              schema:
-                $ref: "#/components/schemas/Problem"
         "500":
           description: Internal server error
           content:
@@ -196,6 +196,12 @@ paths:
       responses:
         "204":
           description: No content
+        "404":
+          description: Not found
+          content:
+            application/problem+json:
+              schema:
+                $ref: "#/components/schemas/Problem"
         "400":
           description: Bad request
           content:
@@ -204,12 +210,6 @@ paths:
                 oneOf:
                 - $ref: "#/components/schemas/Problem"
                 - $ref: "#/components/schemas/ConstraintViolationProblem"
-        "404":
-          description: Not found
-          content:
-            application/problem+json:
-              schema:
-                $ref: "#/components/schemas/Problem"
         "500":
           description: Internal server error
           content:
@@ -291,6 +291,48 @@ components:
         status:
           type: integer
           format: int32
+    Configuration:
+      type: object
+      description: Configuration model
+      properties:
+        application:
+          type: string
+          description: Application identifier
+          examples:
+          - my-app
+          readOnly: true
+        namespace:
+          type: string
+          description: Configuration namespace
+          examples:
+          - feature-flags
+          readOnly: true
+        data:
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              type: string
+          description: Configuration data as key-value pairs
+          examples:
+          - enabled:
+            - "true"
+            roles:
+            - admin
+            - editor
+          minProperties: 1
+        createdAt:
+          type: string
+          format: date-time
+          description: Created timestamp
+          readOnly: true
+        updatedAt:
+          type: string
+          format: date-time
+          description: Last updated timestamp
+          readOnly: true
+      required:
+      - data
     ConstraintViolationProblem:
       type: object
       properties:
@@ -306,10 +348,10 @@ components:
             $ref: "#/components/schemas/Violation"
         title:
           type: string
-        causeAsProblem:
-          $ref: "#/components/schemas/ThrowableProblem"
         detail:
           type: string
+        causeAsProblem:
+          $ref: "#/components/schemas/ThrowableProblem"
         instance:
           type: string
           format: uri
@@ -337,42 +379,4 @@ components:
           type: string
         message:
           type: string
-    Configuration:
-      type: object
-      description: Configuration model
-      properties:
-        application:
-          type: string
-          description: Application identifier
-          examples:
-          - my-app
-          readOnly: true
-        namespace:
-          type: string
-          description: Configuration namespace
-          examples:
-          - feature-flags
-          readOnly: true
-        data:
-          type: object
-          additionalProperties:
-            type: array
-            items:
-              type: string
-          description: Configuration data as key-value pairs
-          examples:
-          - "{\"enabled\": [\"true\"], \"roles\": [\"admin\", \"editor\"]}"
-          minProperties: 1
-        createdAt:
-          type: string
-          format: date-time
-          description: Created timestamp
-          readOnly: true
-        updatedAt:
-          type: string
-          format: date-time
-          description: Last updated timestamp
-          readOnly: true
-      required:
-      - data
   securitySchemes: {}
