@@ -10,6 +10,7 @@ import jakarta.persistence.PreUpdate;
 import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
 import java.time.OffsetDateTime;
+import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -61,13 +62,13 @@ public class ConfigurationEntity {
 
 	@PrePersist
 	void prePersist() {
-		createdAt = now().truncatedTo(MILLIS);
+		createdAt = now(ZoneId.systemDefault()).truncatedTo(MILLIS);
 		updatedAt = createdAt;
 	}
 
 	@PreUpdate
 	void preUpdate() {
-		updatedAt = now().truncatedTo(MILLIS);
+		updatedAt = now(ZoneId.systemDefault()).truncatedTo(MILLIS);
 	}
 
 	public String getId() {
